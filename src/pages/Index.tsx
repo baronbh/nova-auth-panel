@@ -1,9 +1,11 @@
 import { AuthTabs } from "@/components/AuthTabs";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 import patientPortalLogo from "@/assets/patient-portal-logo.png";
 import medicalIcon from "@/assets/medical-icon.png";
 
 const Index = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center p-4">
       <div className="absolute top-6 right-6">
@@ -23,11 +25,11 @@ const Index = () => {
                 />
               </div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Patient Portal
+                {t("app.title")}
               </h1>
             </div>
             <p className="text-muted-foreground text-sm">
-              Secure access to your healthcare information
+              {t("app.subtitle")}
             </p>
           </div>
 
@@ -37,13 +39,13 @@ const Index = () => {
           {/* Footer */}
           <div className="mt-8 pt-6 border-t border-border">
             <p className="text-xs text-center text-muted-foreground">
-              By signing in, you agree to our{" "}
+              {t("footer.agreement")}{" "}
               <a href="#" className="text-primary hover:underline">
-                Terms of Service
+                {t("footer.terms")}
               </a>{" "}
-              and{" "}
+              {t("footer.and")}{" "}
               <a href="#" className="text-primary hover:underline">
-                Privacy Policy
+                {t("footer.privacy")}
               </a>
             </p>
           </div>
@@ -52,9 +54,9 @@ const Index = () => {
         {/* Additional Info */}
         <div className="mt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Need help?{" "}
+            {t("footer.needHelp")}{" "}
             <a href="#" className="text-primary hover:underline font-medium">
-              Contact Support
+              {t("footer.contact")}
             </a>
           </p>
         </div>

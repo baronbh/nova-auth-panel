@@ -6,21 +6,26 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const LanguageSwitcher = () => {
+  const { language, setLanguage } = useLanguage();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2">
           <Globe size={18} />
-          <span>English</span>
+          <span>{language === "en" ? "English" : "Español"}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>English</DropdownMenuItem>
-        <DropdownMenuItem>Español</DropdownMenuItem>
-        <DropdownMenuItem>Français</DropdownMenuItem>
-        <DropdownMenuItem>Deutsch</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("en")}>
+          English
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("es")}>
+          Español
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
