@@ -1,7 +1,7 @@
-import { Heart } from "lucide-react";
 import { AuthTabs } from "@/components/AuthTabs";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import patientPortalLogo from "@/assets/patient-portal-logo.png";
+import medicalIcon from "@/assets/medical-icon.png";
 
 const Index = () => {
   return (
@@ -15,8 +15,12 @@ const Index = () => {
           {/* Logo and Title */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center shadow-lg">
-                <Heart className="text-white" size={28} fill="currentColor" />
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center">
+                <img 
+                  src={medicalIcon} 
+                  alt="Medical Icon" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Patient Portal
