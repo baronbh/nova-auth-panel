@@ -15,7 +15,7 @@ const Index = () => {
           {/* Logo and Title */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-2">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center">
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center">
                 <img 
                   src={medicalIcon} 
                   alt="Medical Icon" 
