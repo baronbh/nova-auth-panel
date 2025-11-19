@@ -8,17 +8,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-
-const signInSchema = z.object({
-  username: z.string().min(1, "Username is required"),
-  password: z.string().min(1, "Password is required"),
-});
-
-type SignInFormData = z.infer<typeof signInSchema>;
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
+
+  const signInSchema = z.object({
+    username: z.string().min(1, t("signin.username.required")),
+    password: z.string().min(1, t("signin.password.required")),
+  });
+
+  type SignInFormData = z.infer<typeof signInSchema>;
   const {
     register,
     handleSubmit,
@@ -28,9 +30,10 @@ export const SignInForm = () => {
   });
 
   const onSubmit = (data: SignInFormData) => {
+    const description = t("signin.toast.description").replace("{username}", data.username);
     toast({
-      title: "Sign In",
-      description: `Signing in as ${data.username}...`,
+      title: t("signin.toast.title"),
+      description,
     });
   };
 
@@ -38,14 +41,14 @@ export const SignInForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="space-y-2">
         <Label htmlFor="username" className="text-sm font-medium">
-          Username (required)
+          {t("signin.username")}
         </Label>
         <Input
           id="username"
           type="text"
           {...register("username")}
           className="h-12"
-          placeholder="Enter your username"
+          placeholder={t("signin.username.placeholder")}
         />
         {errors.username && (
           <p className="text-sm text-destructive">{errors.username.message}</p>
@@ -54,7 +57,7 @@ export const SignInForm = () => {
 
       <div className="space-y-2">
         <Label htmlFor="password" className="text-sm font-medium">
-          Password (required)
+          {t("signin.password")}
         </Label>
         <div className="relative">
           <Input
@@ -62,7 +65,7 @@ export const SignInForm = () => {
             type={showPassword ? "text" : "password"}
             {...register("password")}
             className="h-12 pr-10"
-            placeholder="Enter your password"
+            placeholder={t("signin.password.placeholder")}
           />
           <button
             type="button"
@@ -84,12 +87,12 @@ export const SignInForm = () => {
           onCheckedChange={(checked) => setShowPassword(checked as boolean)}
         />
         <Label htmlFor="showPasswordCheck" className="text-sm cursor-pointer">
-          Show Password
+          {t("signin.showPassword")}
         </Label>
       </div>
 
       <Button type="submit" className="w-full h-12 text-base font-medium">
-        Sign In
+        {t("signin.button")}
       </Button>
 
       <div className="space-y-3 text-center">
@@ -97,13 +100,13 @@ export const SignInForm = () => {
           href="#"
           className="block text-sm text-primary hover:underline transition-all"
         >
-          Forgot Username?
+          {t("signin.forgotUsername")}
         </a>
         <a
           href="#"
           className="block text-sm text-primary hover:underline transition-all"
         >
-          Forgot Password?
+          {t("signin.forgotPassword")}
         </a>
       </div>
     </form>
