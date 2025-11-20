@@ -8,7 +8,6 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import patientPortalLogo from "@/assets/patient-portal-logo.png";
 
 const ForgotUsername = () => {
   const { t } = useLanguage();
@@ -37,17 +36,7 @@ const ForgotUsername = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-medical-50 to-medical-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md flex flex-col items-center">
-        {/* Logo Section */}
-        <div className="mb-8 text-center">
-          <img
-            src={patientPortalLogo}
-            alt="Patient Portal Logo"
-            className="w-full max-w-md mb-4"
-          />
-        </div>
-
-        {/* Reset Form Card */}
+      <div className="w-full max-w-md">
         <Card className="w-full shadow-xl">
           <CardContent className="p-8">
             <div className="flex justify-end mb-6">
