@@ -8,7 +8,6 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import medicalIcon from "@/assets/medical-icon.png";
 import patientPortalLogo from "@/assets/patient-portal-logo.png";
 
 const ForgotUsername = () => {
@@ -38,24 +37,17 @@ const ForgotUsername = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-medical-50 to-medical-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8 items-center">
-        {/* Left Panel - Logo and Icon */}
-        <div className="flex flex-col items-center justify-center space-y-8">
+      <div className="w-full max-w-md flex flex-col items-center">
+        {/* Logo Section */}
+        <div className="mb-8 text-center">
           <img
             src={patientPortalLogo}
             alt="Patient Portal Logo"
-            className="w-full max-w-md"
+            className="w-full max-w-md mb-4"
           />
-          <div className="w-16 h-16 flex items-center justify-center">
-            <img
-              src={medicalIcon}
-              alt="Medical Icon"
-              className="w-full h-full object-contain"
-            />
-          </div>
         </div>
 
-        {/* Right Panel - Reset Form */}
+        {/* Reset Form Card */}
         <Card className="w-full shadow-xl">
           <CardContent className="p-8">
             <div className="flex justify-end mb-6">
