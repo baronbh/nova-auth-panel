@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -11,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const SignInForm = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
   const { t } = useLanguage();
@@ -96,12 +98,13 @@ export const SignInForm = () => {
       </Button>
 
       <div className="space-y-3 text-center">
-        <a
-          href="#"
-          className="block text-sm text-primary hover:underline transition-all"
+        <button
+          type="button"
+          onClick={() => navigate("/forgot-username")}
+          className="block w-full text-sm text-primary hover:underline transition-all"
         >
           {t("signin.forgotUsername")}
-        </a>
+        </button>
         <a
           href="#"
           className="block text-sm text-primary hover:underline transition-all"
