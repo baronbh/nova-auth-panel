@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import medicalIcon from "@/assets/medical-icon.png";
+import securityBadge from "@/assets/security-badge.png";
 
 const ForgotUsername = () => {
   const { t } = useLanguage();
@@ -113,6 +114,15 @@ const ForgotUsername = () => {
             </form>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Security Badge */}
+      <div className="fixed bottom-6 right-6">
+        <img 
+          src={securityBadge} 
+          alt="Secure Site" 
+          className="w-24 h-auto opacity-80 hover:opacity-100 transition-opacity"
+        />
       </div>
     </div>
   );
