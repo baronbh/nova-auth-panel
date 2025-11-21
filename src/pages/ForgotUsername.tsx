@@ -8,6 +8,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import medicalIcon from "@/assets/medical-icon.png";
 
 const ForgotUsername = () => {
   const { t } = useLanguage();
@@ -43,6 +44,24 @@ const ForgotUsername = () => {
       <div className="w-full max-w-md">
         <Card className="w-full shadow-xl">
           <CardContent className="p-8">
+            <div className="text-center mb-8">
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <div className="w-16 h-16 rounded-xl flex items-center justify-center">
+                  <img 
+                    src={medicalIcon} 
+                    alt="Medical Icon" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  {t("app.title")}
+                </h1>
+              </div>
+              <p className="text-muted-foreground text-sm">
+                {t("app.subtitle")}
+              </p>
+            </div>
+
             <h1 className="text-3xl font-bold mb-6 text-foreground">
               {t("reset.title")}
             </h1>
