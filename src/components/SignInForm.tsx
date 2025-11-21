@@ -105,12 +105,13 @@ export const SignInForm = () => {
         >
           {t("signin.forgotUsername")}
         </button>
-        <a
-          href="#"
-          className="block text-sm text-primary hover:underline transition-all"
+        <button
+          type="button"
+          onClick={() => navigate("/forgot-password")}
+          className="block w-full text-sm text-primary hover:underline transition-all"
         >
           {t("signin.forgotPassword")}
-        </a>
+        </button>
       </div>
     </form>
   );
