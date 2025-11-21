@@ -8,7 +8,6 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import patientPortalLogo from "@/assets/patient-portal-logo.png";
 
 const ForgotUsername = () => {
   const { t } = useLanguage();
@@ -44,14 +43,6 @@ const ForgotUsername = () => {
       <div className="w-full max-w-md">
         <Card className="w-full shadow-xl">
           <CardContent className="p-8">
-            <div className="flex justify-center mb-6">
-              <img
-                src={patientPortalLogo}
-                alt="Patient Portal Logo"
-                className="w-full max-w-sm"
-              />
-            </div>
-
             <h1 className="text-3xl font-bold mb-6 text-foreground">
               {t("reset.title")}
             </h1>
