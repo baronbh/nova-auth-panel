@@ -3,6 +3,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
 import patientPortalLogo from "@/assets/patient-portal-logo.png";
 import medicalIcon from "@/assets/medical-icon.png";
+import securityBadge from "@/assets/security-badge.png";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -60,6 +61,15 @@ const Index = () => {
             </a>
           </p>
         </div>
+      </div>
+
+      {/* Security Badge */}
+      <div className="fixed bottom-6 right-6">
+        <img 
+          src={securityBadge} 
+          alt="Secure Site" 
+          className="w-24 h-auto opacity-80 hover:opacity-100 transition-opacity"
+        />
       </div>
     </div>
   );
